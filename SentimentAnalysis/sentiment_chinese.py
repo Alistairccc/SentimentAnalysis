@@ -4,17 +4,16 @@ import os
 # 忽略符号链接警告
 os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"] = "1"
 
-# 中文情感分析模型（推荐以下任选其一）
+# 中文情感分析模型
 models = [
     "IDEA-CCNL/Erlangshen-Roberta-110M-Sentiment",  # 深度求索中文情感模型
-    "uer/roberta-base-finetuned-jd-binary-chinese",  # 京东评论二分类
-    "nlptown/bert-base-multilingual-uncased-sentiment"  # 多语言通用模型
+    
 ]
 
 # 初始化中文情感分析管道
 classifier = pipeline(
     task="sentiment-analysis",
-    model=models[0],  # 优先使用Erlangshen中文模型
+    model=models[0],  
     framework="pt"
 )
 
